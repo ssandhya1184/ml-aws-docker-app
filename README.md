@@ -2,7 +2,7 @@
 Deploy a simple ML model in aws using docker
 
 # ML AWS Docker App
-
+057122450811.dkr.ecr.us-east-1.amazonaws.com/ml-app
 ## Features
 - ML model training
 - FastAPI inference
@@ -18,7 +18,8 @@ uv sync
 
 python src/pipeline/train_pipeline.py
 uvicorn src.api.main:app --reload
-
+docker build -t ml-app .
+docker run -p 8000:8000 ml-app
 
 1. Create a new repo. CLone in Local
 2. Add required folders

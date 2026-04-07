@@ -2,8 +2,20 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
+# Copy dependency files first (better caching)
+COPY pyproject.toml uv.lock ./
+
+# Install uv and dependencies
+RUN pip install --no-cache-dir uv && uv sync
+
+# Copy rest of the app
 COPY . .
 
-RUN pip install uv && uv sync
+# Fix imports
+ENV PYTHONPATH=/app
 
-CMD ["uvicorn", "src.api.main:app", "--host", "0.0.0.0", "--port", "8000"]
+# Expose port
+EXPOSE 8000
+
+# Run app
+CMD ["uv", "run", "uvicorn", "src.api.main:app", "--host", "0.0.0.0", "--port", "8000"]
