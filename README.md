@@ -108,13 +108,7 @@ Streamlit Application
 
 ## Home Page
 
-![Home Page](screenshots/home1.png)
-
----
-[Home Page](screenshots/home1.png)
-
----
-[Home Page](screenshots/home1.png)
+![Home Page](screenshots/home1.png)(screenshots/home1.png)(screenshots/home1.png)
 
 ---
 
