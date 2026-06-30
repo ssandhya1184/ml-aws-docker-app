@@ -1,67 +1,49 @@
-# ml-aws-docker-app
-Deploy a simple ML model in aws using docker
+# Employee Attrition Prediction using Machine Learning
+## Overview
 
-# ML AWS Docker App
-057122450811.dkr.ecr.us-east-1.amazonaws.com/ml-app
-## Features
-- ML model training
-- FastAPI inference
-- Dockerized deployment
-- AWS EC2 ready
+This project predicts whether an employee is likely to leave the organization using a machine learning pipeline built with Scikit-learn.
 
-## Setup
+The application includes:
 
-uv venv
-uv sync
+- Data preprocessing pipeline
+- Feature engineering
+- SMOTE for handling class imbalance
+- Random Forest classifier
+- Interactive Streamlit UI
+- Docker containerization
+- Deployment on AWS EC2
+- Container image stored in Amazon ECR
 
-## Run
+## Architecture
 
-python src/pipeline/train_pipeline.py
-uvicorn src.api.main:app --reload
-docker build -t ml-app .
-docker run -p 8000:8000 ml-app
-
-1. Create a new repo. CLone in Local
-2. Add required folders
-3. Update gitignore
-4. uv init
-   uv venv
-   uv add - required libraries
-
-   ml-aws-docker-app/
-│
-├── .venv/                 # virtual env (ignored in git)
-├── src/                   # main source code
-│   ├── __init__.py
-│   ├── components/        # reusable modules
-│   │   ├── data_ingestion.py
-│   │   ├── data_preprocessing.py
-│   │   └── model_trainer.py
-│   │
-│   ├── pipeline/          # training/inference pipelines
-│   │   ├── train_pipeline.py
-│   │   └── predict_pipeline.py
-│   │
-│   ├── api/               # FastAPI app
-│   │   └── main.py
-│   │
-│   ├── utils/             # helper functions
-│   │   └── common.py
-│   │
-│   └── logger.py
-│
-├── notebooks/             # Jupyter notebooks (EDA)
-│   └── experiments.ipynb
-│
-├── artifacts/             # trained models, outputs
-│   └── model.pkl
-│
-├── tests/                 # unit tests
-│   └── test_pipeline.py
-│
-├── Dockerfile
-├── .dockerignore
-├── .gitignore
-├── README.md
-├── pyproject.toml
-└── uv.lock                # auto-generated lock file
+```text
+                    Employee Data
+                           │
+                           ▼
+                 Data Preprocessing
+         (Imputer + Scaler + OneHotEncoder)
+                           │
+                           ▼
+                       SMOTE
+                           │
+                           ▼
+              Random Forest Classifier
+                           │
+                           ▼
+                  attrition_pipeline.pkl
+                           │
+                           ▼
+                    Streamlit UI
+                           │
+                           ▼
+                  Docker Container
+                           │
+                           ▼
+                     Amazon ECR
+                           │
+                           ▼
+                     Amazon EC2
+                           │
+                           ▼
+                      Web Browser
+```
