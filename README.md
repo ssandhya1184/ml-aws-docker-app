@@ -84,3 +84,46 @@ Threshold = 0.30
 ↓
 Employee Attrition Prediction
 ```
+
+## Steps to run locally
+uv sync
+uv run streamlit run src/app/streamlit_app.py
+
+## Docker
+docker build -t ml-app .
+docker run -p 8501:8501 ml-app
+
+## AWS Deployment
+```text
+Docker Image
+↓
+Amazon ECR
+↓
+Amazon EC2
+↓
+Streamlit Application
+```
+
+# Application Screenshots
+
+## Home Page
+
+![Home Page](screenshots/home1.png)
+
+---
+[Home Page](screenshots/home1.png)
+
+---
+[Home Page](screenshots/home1.png)
+
+---
+
+## High Risk Prediction
+
+![High Risk](screenshots/prediction_yes.png)
+
+---
+
+## Low Risk Prediction
+
+![Low Risk](screenshots/prediction_no.png)
