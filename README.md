@@ -108,7 +108,13 @@ Streamlit Application
 
 ## Home Page
 
-![Home Page](screenshots/home1.png)(screenshots/home1.png)(screenshots/home1.png)
+![Employee Details Section](screenshots/home1.png)
+
+---
+![Work Information Section](screenshots/home2.png)
+
+---
+![Other Details Section](screenshots/home3.png)
 
 ---
 
