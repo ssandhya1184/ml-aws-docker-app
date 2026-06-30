@@ -13,6 +13,12 @@ st.set_page_config(
     layout="wide"
 )
 
+@st.cache_resource
+def load_model():
+   return joblib.load("artifacts/attrition_pipeline.pkl")
+
+
+
 # -----------------------
 # Custom Styling
 # -----------------------
@@ -37,6 +43,7 @@ st.markdown("""
 # -----------------------
 st.title("📊 Employee Attrition Prediction")
 st.markdown("### Predict the likelihood of an employee leaving the organization")
+
 
 st.divider()
 
@@ -123,7 +130,7 @@ if st.button("🔍 Predict Attrition"):
     # -----------------------
     # Load Model
     # -----------------------
-    model = joblib.load("artifacts/attrition_pipeline.pkl")
+    model = load_model()
     prob = model.predict_proba(input_df)[0][1]
     prediction = "Yes" if prob > threshold else "No"
     

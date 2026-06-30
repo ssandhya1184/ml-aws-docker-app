@@ -1,67 +1,86 @@
-# ml-aws-docker-app
-Deploy a simple ML model in aws using docker
+# Employee Attrition Prediction using Machine Learning
+## Overview
 
-# ML AWS Docker App
-057122450811.dkr.ecr.us-east-1.amazonaws.com/ml-app
+This project predicts whether an employee is likely to leave the organization using a machine learning pipeline built with Scikit-learn.
+
+The application includes:
+
+- Data preprocessing pipeline
+- Feature engineering
+- SMOTE for handling class imbalance
+- Random Forest classifier
+- Interactive Streamlit UI
+- Docker containerization
+- Deployment on AWS EC2
+- Container image stored in Amazon ECR
+
+## Architecture
+
+```text
+Dataset
+     │
+     ▼
+Preprocessing Pipeline
+     │
+     ▼
+Random Forest Model
+     │
+     ▼
+Pipeline Serialization (Joblib)
+     │
+     ▼
+Streamlit UI
+     │
+     ▼
+Docker
+     │
+     ▼
+Amazon ECR
+     │
+     ▼
+Amazon EC2
+```
+
 ## Features
-- ML model training
-- FastAPI inference
-- Dockerized deployment
-- AWS EC2 ready
+- Interactive Streamlit interface
+- Automatic preprocessing using Scikit-learn Pipeline
+- OneHotEncoding
+- Standard Scaling
+- Missing value handling
+- SMOTE oversampling
+- Probability-based prediction threshold (0.30)
+- Docker deployment
+- AWS EC2 deployment
 
-## Setup
+## Technologies
+- Python
+- Scikit-learn
+- Pandas
+- NumPy
+- Imbalanced-learn
+- Streamlit
+- Docker
+- AWS EC2
+- Amazon ECR
+- uv Package Manager
 
-uv venv
-uv sync
-
-## Run
-
-python src/pipeline/train_pipeline.py
-uvicorn src.api.main:app --reload
-docker build -t ml-app .
-docker run -p 8000:8000 ml-app
-
-1. Create a new repo. CLone in Local
-2. Add required folders
-3. Update gitignore
-4. uv init
-   uv venv
-   uv add - required libraries
-
-   ml-aws-docker-app/
-│
-├── .venv/                 # virtual env (ignored in git)
-├── src/                   # main source code
-│   ├── __init__.py
-│   ├── components/        # reusable modules
-│   │   ├── data_ingestion.py
-│   │   ├── data_preprocessing.py
-│   │   └── model_trainer.py
-│   │
-│   ├── pipeline/          # training/inference pipelines
-│   │   ├── train_pipeline.py
-│   │   └── predict_pipeline.py
-│   │
-│   ├── api/               # FastAPI app
-│   │   └── main.py
-│   │
-│   ├── utils/             # helper functions
-│   │   └── common.py
-│   │
-│   └── logger.py
-│
-├── notebooks/             # Jupyter notebooks (EDA)
-│   └── experiments.ipynb
-│
-├── artifacts/             # trained models, outputs
-│   └── model.pkl
-│
-├── tests/                 # unit tests
-│   └── test_pipeline.py
-│
-├── Dockerfile
-├── .dockerignore
-├── .gitignore
-├── README.md
-├── pyproject.toml
-└── uv.lock                # auto-generated lock file
+## Model Pipeline
+```text
+Raw User Input
+↓
+Column Transformer
+↓
+StandardScaler
+↓
+OneHotEncoder
+↓
+SMOTE
+↓
+Random Forest
+↓
+Probability Prediction
+↓
+Threshold = 0.30
+↓
+Employee Attrition Prediction
+```
