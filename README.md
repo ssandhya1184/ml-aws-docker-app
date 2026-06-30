@@ -1,4 +1,8 @@
 # Employee Attrition Prediction using Machine Learning
+
+![Application](screenshots/home1.png)
+
+An end-to-end ML application built with Scikit-learn, Streamlit, Docker, and AWS.
 ## Overview
 
 This project predicts whether an employee is likely to leave the organization using a machine learning pipeline built with Scikit-learn.
