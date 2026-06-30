@@ -17,33 +17,70 @@ The application includes:
 ## Architecture
 
 ```text
-                    Employee Data
-                           │
-                           ▼
-                 Data Preprocessing
-         (Imputer + Scaler + OneHotEncoder)
-                           │
-                           ▼
-                       SMOTE
-                           │
-                           ▼
-              Random Forest Classifier
-                           │
-                           ▼
-                  attrition_pipeline.pkl
-                           │
-                           ▼
-                    Streamlit UI
-                           │
-                           ▼
-                  Docker Container
-                           │
-                           ▼
-                     Amazon ECR
-                           │
-                           ▼
-                     Amazon EC2
-                           │
-                           ▼
-                      Web Browser
+Dataset
+     │
+     ▼
+Preprocessing Pipeline
+     │
+     ▼
+Random Forest Model
+     │
+     ▼
+Pipeline Serialization (Joblib)
+     │
+     ▼
+Streamlit UI
+     │
+     ▼
+Docker
+     │
+     ▼
+Amazon ECR
+     │
+     ▼
+Amazon EC2
+```
+
+## Features
+- Interactive Streamlit interface
+- Automatic preprocessing using Scikit-learn Pipeline
+- OneHotEncoding
+- Standard Scaling
+- Missing value handling
+- SMOTE oversampling
+- Probability-based prediction threshold (0.30)
+- Docker deployment
+- AWS EC2 deployment
+
+## Technologies
+- Python
+- Scikit-learn
+- Pandas
+- NumPy
+- Imbalanced-learn
+- Streamlit
+- Docker
+- AWS EC2
+- Amazon ECR
+- uv Package Manager
+
+## Model Pipeline
+```text
+Raw User Input
+↓
+Column Transformer
+↓
+StandardScaler
+↓
+OneHotEncoder
+↓
+SMOTE
+↓
+Random Forest
+↓
+Probability Prediction
+↓
+Threshold = 0.30
+↓
+Employee Attrition Prediction
 ```
