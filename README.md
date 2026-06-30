@@ -91,10 +91,12 @@ Employee Attrition Prediction
 
 ## Steps to run locally
 uv sync
+
 uv run streamlit run src/app/streamlit_app.py
 
 ## Docker
 docker build -t ml-app .
+
 docker run -p 8501:8501 ml-app
 
 ## AWS Deployment
