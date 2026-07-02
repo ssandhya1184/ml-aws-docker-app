@@ -1,5 +1,14 @@
 # Employee Attrition Prediction using Machine Learning
 
+![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python)
+![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-ML-orange?logo=scikitlearn)
+![Streamlit](https://img.shields.io/badge/Streamlit-UI-red?logo=streamlit)
+![Docker](https://img.shields.io/badge/Docker-Container-blue?logo=docker)
+![AWS EC2](https://img.shields.io/badge/AWS-EC2-orange?logo=amazonaws)
+![Amazon ECR](https://img.shields.io/badge/AWS-ECR-orange?logo=amazonaws)
+![uv](https://img.shields.io/badge/uv-Package_Manager-purple)
+![License](https://img.shields.io/badge/License-MIT-green)
+
 ![Application](screenshots/home1.png)
 
 An end-to-end ML application built with Scikit-learn, Streamlit, Docker, and AWS.
