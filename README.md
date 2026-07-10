@@ -1,7 +1,5 @@
 # Employee Attrition Prediction | End-to-End ML Application
 
-An end-to-end Machine Learning application demonstrating model development, automated testing, containerization, CI/CD, and cloud deployment using AWS.
-
 [![CI](https://github.com/ssandhya1184/ml-aws-docker-app/actions/workflows/ci.yml/badge.svg)](https://github.com/ssandhya1184/ml-aws-docker-app/actions/workflows/ci.yml)
 ![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python)
 ![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-ML-orange?logo=scikitlearn)
@@ -16,7 +14,8 @@ An end-to-end Machine Learning application demonstrating model development, auto
 
 ![Application](screenshots/home1.png)
 
-An end-to-end ML application built with Scikit-learn, Streamlit, Docker, and AWS.
+An end-to-end Machine Learning application demonstrating model development, automated testing, containerization, CI/CD, and cloud deployment using AWS.
+
 ## Project Overview
 
 This project demonstrates how a Machine Learning model can be transformed into a production-style application.
