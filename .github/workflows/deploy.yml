@@ -27,3 +27,11 @@ jobs:
             
             - name: Build Docker Image
               run: docker build -t employee-attrition-app:latest .
+            
+            - name: Tag Docker Image
+              run: |
+                docker tag employee-attrition-app:latest \
+                ${{ vars.AWS_ACCOUNT_ID }}.dkr.ecr.${{ vars.AWS_REGION }}.amazonaws.com/${{ vars.ECR_REPOSITORY }}:latest
+
+            - name: Push Docker
+              run: docker push ${{ vars.AWS_ACCOUNT_ID }}.dkr.ecr.${{ vars.AWS_REGION }}.amazonaws.com/${{ vars.ECR_REPOSITORY }}:latest
